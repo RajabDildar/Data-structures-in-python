@@ -96,13 +96,49 @@ class MyList:
             self.__delitem__(index)
         else:
             print(index)
+
+    # finding minimum value
+    def __min__(self):
+        min = self.A[0]
+        for i in range(self.n):
+            if self.A[i] < min:
+                min = self.A[i]
+        return min
+    
+    # finding maximum value
+    def __max__(self):
+        max = self.A[0]
+        for i in range(self.n):
+            if self.A[i] > max:
+                max = self.A[i]
+        return max
+    
+    # extend method
+    def extend(self,listB):
+        for i in range(listB.n):
+            self.append(listB[i])
+        return self
+    
         
 # ================================================================================
 
-L = MyList()
+L1 = MyList()
+L2 = MyList()
 
-L.append("Hello")
-L.append(12.6)
-L.append(3)
-L.insert(1,15)
-print(L)
+L1.append(10)
+L1.append(20)
+L1.append(30)
+L1.insert(1,40)
+print(L1)
+print(min(L1))
+print(max(L1))
+print(sum(L1))
+
+L2.append(100)
+L2.append(200)
+L2.append(300)
+L2.insert(1,400)
+print(L2)
+
+L1.extend(L2)
+print(L1)
